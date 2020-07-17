@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/cc250080/GIT/caixonera/.config/sway'
+let g:netrw_dirhist_2='/home/cc250080/.config/i3blocks'

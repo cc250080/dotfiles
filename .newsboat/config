@@ -1,0 +1,11 @@
+## GENERAL CONFIG
+
+auto-reload yes
+reload-time 240
+
+## TTRSS ACCESS
+urls-source "ttrss"
+ttrss-mode "multi"
+ttrss-passwordfile "/home/cc250080/.newsboat/ttrsspass"
+ttrss-login "carles"
+ttrss-url "https://rss.carles.cc/"

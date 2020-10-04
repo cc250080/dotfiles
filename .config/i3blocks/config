@@ -1,0 +1,30 @@
+# CARLES i3blocks
+
+# Global properties
+
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[funky]
+full_text=<span foreground="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
+markup=pango
+
+[bitcoin]
+command=echo "₿ = $(curl -s https://blockchain.info/ticker | awk '{ print $8 }' | sed -n 2p | cut -c -7)$"
+interval=240
+background=#524010
+
+[volume]
+label=🎧
+#label=♪
+instance=Master
+##instance=PCM
+interval=once
+signal=10
+background=#521010
+
+[time]
+command=echo "⌚$(date '+%d-%m-%Y %H:%M:%S')"
+interval=1
+background=#451052

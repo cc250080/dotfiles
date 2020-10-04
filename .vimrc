@@ -28,20 +28,18 @@
 "
 
 "------------------------------------------------------------
-" Plugins and Colorscheme   {{{1
-packadd! onedark.vim
-packadd! jellybeans.vim
-packadd! tender.vim
-packadd! palenight.vim
-packadd! neodark.vim
-packadd! lightline.vim
+" Plugins and Colorscheme 
 
+
+
+packadd! palenight.vim
 
 set termguicolors
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+set background=dark
 colorscheme palenight
 "let g:neodark#background = '#202020'
 
@@ -51,6 +49,11 @@ let g:lightline = {
       \ }
 " Italics for my favorite color scheme
 let g:palenight_terminal_italics=1
+
+" To configure Airline if needed:
+
+let g:airline_theme = "palenight"
+
 
 "------------------------------------------------------------
 " Features {{{1

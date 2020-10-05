@@ -1,11 +1,42 @@
-## GENERAL CONFIG
-
+# CONFIG
 auto-reload yes
-reload-time 240
+reload-time 120
+reload-threads 4
+download-retries 4
+download-timeout 10
+prepopulate-query-feeds yes
 
-## TTRSS ACCESS
+# TT-RSS
 urls-source "ttrss"
-ttrss-mode "multi"
-ttrss-passwordfile "/home/cc250080/.newsboat/ttrsspass"
+ttrss-url "https://rss.carles.cc"
 ttrss-login "carles"
-ttrss-url "https://rss.carles.cc/"
+ttrss-password "i-2=U-tz"
+
+# -- display -------------------------------------------------------------------
+
+show-read-feeds no
+feed-sort-order unreadarticlecount-asc
+
+color info default default reverse
+color listnormal_unread yellow default
+color listfocus blue default reverse bold
+color listfocus_unread blue default reverse bold
+
+text-width 80
+
+# -- navigation ----------------------------------------------------------------
+
+goto-next-feed no
+
+browser firefox
+
+macro , set browser "setsid -f /usr/bin/mpv %u"; open-in-browser ; set browser firefox
+
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article

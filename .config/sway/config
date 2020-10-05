@@ -169,7 +169,7 @@ bindsym $mod+r mode "resize"
 bar {
     font pango:mono 10
     position top
-    status_command i3blocks
+    status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
 
     colors {
         statusline #ffffff
@@ -205,4 +205,4 @@ exec_always {
 # INCLUDE PER MACHINE CONFIG
 
 include /etc/sway/config.d/*
-include /home/cc250080/.config/sway/computers/*
+include /home/$USER/.config/sway/computers/*

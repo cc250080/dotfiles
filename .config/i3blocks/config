@@ -38,7 +38,7 @@ background=#8f641a
 label=🖴
 ##instance=/mnt/data
 interval=30
-background=#2f8f1a
+background=#0a451a
 
 [volume]
 label=🎧

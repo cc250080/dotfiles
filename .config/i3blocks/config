@@ -10,6 +10,31 @@ markup=none
 full_text=<span foreground="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
 markup=pango
 
+[cpu_usage]
+label=💻
+interval=6
+#min_width=CPU: 100.00%
+separator=false
+background=#3228bd
+
+[temperature]
+label=🌡
+interval=10
+separator=false
+background=#bd3428
+
+[memory]
+label=🐏
+separator=false
+interval=30
+background=#bd9228
+
+[disk]
+label=🏡
+##instance=/mnt/data
+interval=30
+background=#8dbd28
+
 [bitcoin]
 command=echo "₿ = $(curl -s https://blockchain.info/ticker | awk '{ print $8 }' | sed -n 2p | cut -c -7)$"
 interval=240

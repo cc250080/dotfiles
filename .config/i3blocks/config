@@ -6,39 +6,39 @@ command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[funky]
-full_text=<span foreground="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
-markup=pango
+#[funky]
+#full_text=<span foreground="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
+#markup=pango
+
+[bitcoin]
+command=echo "₿ = $(curl -s https://blockchain.info/ticker | awk '{ print $8 }' | sed -n 2p | cut -c -7)$"
+interval=240
+background=#524010
 
 [cpu_usage]
 label=💻
 interval=6
 #min_width=CPU: 100.00%
 separator=false
-background=#3228bd
+background=#1a278f
 
 [temperature]
 label=🌡
 interval=10
 separator=false
-background=#bd3428
+background=#8f221a
 
 [memory]
 label=🐏
 separator=false
 interval=30
-background=#bd9228
+background=#8f641a
 
 [disk]
-label=🏡
+label=🖴
 ##instance=/mnt/data
 interval=30
-background=#8dbd28
-
-[bitcoin]
-command=echo "₿ = $(curl -s https://blockchain.info/ticker | awk '{ print $8 }' | sed -n 2p | cut -c -7)$"
-interval=240
-background=#524010
+background=#2f8f1a
 
 [volume]
 label=🎧

@@ -15,6 +15,11 @@ command=echo "₿ = $(curl -s https://blockchain.info/ticker | awk '{ print $8 }
 interval=240
 background=#524010
 
+[bitcoin_fear_index]
+command=echo "₿FI = $(curl -s https://api.alternative.me/fng/ | jq -r '.data[0] .value_classification, .data[0] .value' | xargs)"
+interval=300
+background=#827e28
+
 [cpu_usage]
 label=💻
 interval=6

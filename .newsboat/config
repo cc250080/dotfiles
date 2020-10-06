@@ -1,9 +1,9 @@
 # CONFIG
 auto-reload yes
-reload-time 120
-reload-threads 4
-download-retries 4
-download-timeout 10
+reload-time 30
+reload-threads 6
+download-retries 6
+download-timeout 20
 prepopulate-query-feeds yes
 
 # TT-RSS

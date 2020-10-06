@@ -1,8 +1,8 @@
 # CONFIG
 auto-reload yes
-reload-time 30
-reload-threads 6
-download-retries 6
+reload-time 15
+reload-threads 10
+download-retries 5
 download-timeout 20
 prepopulate-query-feeds yes
 

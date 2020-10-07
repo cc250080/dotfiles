@@ -14,7 +14,7 @@ ttrss-password "i-2=U-tz"
 
 # -- display -------------------------------------------------------------------
 
-show-read-feeds no
+show-read-feeds yes
 feed-sort-order unreadarticlecount-asc
 
 color info default default reverse
@@ -30,7 +30,8 @@ goto-next-feed no
 
 browser firefox
 
-macro , set browser "setsid -f /usr/bin/mpv %u"; open-in-browser ; set browser firefox
+#macro , set browser "setsid -f /usr/bin/mpv %u"; open-in-browser ; set browser firefox
+macro , set browser "nohup mpv -ytdl-format='bestvideo[height<=?720]+bestaudio/best' %u &>/dev/null &"; open-in-browser ; set browser firefox
 
 bind-key j down feedlist
 bind-key k up feedlist

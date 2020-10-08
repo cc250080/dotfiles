@@ -29,7 +29,7 @@ set $menu dmenu_path | wofi -I -i -m --show drun | xargs swaymsg exec
 ### Key bindings
 
     # start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec $term -e tmux
 
     # start the browser
     bindsym $mod+Shift+w exec $www

@@ -188,7 +188,7 @@ gaps outer 8
 
 # Area screenshot binding
 
-bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir Screenshots)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 
 # GTK3 THEME
 

@@ -1,5 +1,7 @@
 ### Variables
 #
+# pacman -S alacritty wofi firefox pango slurp grim i3blocks 
+#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim

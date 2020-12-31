@@ -1,6 +1,6 @@
 ### Variables
 #
-# pacman -S alacritty wofi firefox pango slurp grim i3blocks 
+# pacman -S alacritty wofi firefox pango slurp grim i3blocks qt5-wayland qt6-wayland ttf-font-awesome otf-font-awesome ttf-caladea ttf-carlito ttf-dejavu ttf-liberation noto-fonts ttf-opensans otf-overpass ttf-roboto ttf-roboto-mono adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts wget curl ttf-liberation ttf-droid noto-fonts-emoji pulseaudio-alsa jq alsa-utils nextcloud-client newsboat mpv youtube-dl
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -22,8 +22,8 @@ set $menu dmenu_path | wofi -I -i -m --show drun | xargs swaymsg exec
  exec swayidle -w \
           timeout 1800 'swaylock -f -k -c 000000' \
           timeout 3600 'swaymsg "output * dpms off"' \
-               resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -k -c 000000'
+               resume 'swaymsg "output * dpms on"' \ 
+#          before-sleep 'swaylock -f -k -c 000000'
 
     bindsym $mod+Mod1+l exec 'swaylock -f -c 000000'
     bindsym $mod+Mod1+k exec 'swaymsg "output * dpms on"'

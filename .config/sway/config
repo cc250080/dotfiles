@@ -1,6 +1,6 @@
 ### Variables
 #
-# pacman -S alacritty wofi firefox pango slurp grim i3blocks qt5-wayland qt6-wayland ttf-font-awesome otf-font-awesome ttf-caladea ttf-carlito ttf-dejavu ttf-liberation noto-fonts ttf-opensans otf-overpass ttf-roboto ttf-roboto-mono adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts wget curl ttf-liberation ttf-droid noto-fonts-emoji pulseaudio-alsa jq alsa-utils nextcloud-client newsboat mpv youtube-dl ntp mako libnotify man-pages scdoc man
+# pacman -S alacritty wofi firefox pango slurp grim i3blocks qt5-wayland qt6-wayland ttf-font-awesome otf-font-awesome ttf-caladea ttf-carlito ttf-dejavu ttf-liberation noto-fonts ttf-opensans otf-overpass ttf-roboto ttf-roboto-mono adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts wget curl ttf-liberation ttf-droid noto-fonts-emoji pulseaudio-alsa jq alsa-utils nextcloud-client newsboat mpv youtube-dl ntp mako libnotify man-pages scdoc man gammastep xdg-user-dirs
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -190,23 +190,24 @@ gaps outer 8
 
 # Area screenshot binding
 
-bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir Screenshots)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir SCREENSHOTS)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 
 # GTK3 THEME
 
-seat seat0 xcursor_theme "Alkano-aio"
+seat seat0 xcursor_theme "Alkano-Scarlet"
 
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita'
     gsettings set $gnome-schema icon-theme 'Adwaita'
-    gsettings set $gnome-schema cursor-theme 'Alkano-aio'
+    gsettings set $gnome-schema cursor-theme 'Alkano-Scarlet'
 }
 
 # EXEC AT STARTUP
 
 exec mako
+exec gammastep -l 40:116
 
 # INCLUDE PER MACHINE CONFIG
 

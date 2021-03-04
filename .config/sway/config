@@ -212,4 +212,4 @@ exec gammastep -l 40:116
 # INCLUDE PER MACHINE CONFIG
 
 include /etc/sway/config.d/*
-include /home/$USER/.config/sway/computers/*
+include /home/$USER/.config/sway/`hostname`

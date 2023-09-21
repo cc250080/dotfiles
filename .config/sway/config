@@ -223,4 +223,7 @@ smart_borders on
 smart_gaps on
 gaps inner 5
 
-include /etc/sway/config.d/*
+
+# Include hosts files for different computers
+#include /etc/sway/config.d/*
+include ~/.config/sway/`hostname`.conf

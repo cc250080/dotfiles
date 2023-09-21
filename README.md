@@ -24,7 +24,7 @@ Then I can commit and push normally, and .vimrc is tracked by git. The gitignore
 ```
 cd ~
 git init
-git remote add origin git@github.com:cc250080/rochedotfiles.git
+git remote add origin git@github.com:cc250080/dotfiles.git
 git fetch
 git checkout -f main
 ```

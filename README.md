@@ -1,8 +1,6 @@
 ## Introduction
 
-This repository is made to customize an installation based in RLC 22.04.
-
-If you are using an nvidia graphic card install its kms drivers first
+This repository keeps my dotfiles and NixOS config.
 
 
 ## How to use this repo as for Home dotfiles

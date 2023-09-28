@@ -61,7 +61,8 @@
 
   # Add custom ca-certs
 
-    security.pki.certificates = [ "{pkgs.cacert}/etc/ssl/certs/Roche/*.crt" ];
+  #  security.pki.certificates = [ "{pkgs.cacert}/etc/ssl/certs/Roche/*.crt" ];
+    security.pki.certificates = [ "{pkgs.cacert}/home/cortescc/.config/nixos/Roche/*.crt" ];
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
   # known as portals under a well-known name
@@ -80,7 +81,7 @@
   # Enable Wayland and Sway
 
   programs.sway.enable = true;
-
+  programs.waybar.enable = true;
   programs.dconf.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -152,6 +153,7 @@
     gnome3.adwaita-icon-theme
     xdg-utils #for opening default programs when clicking links
     wofi #wayland app launcher
+    waybar #replacement for swaybar
     gnome.cheese
     alacritty
     vulkan-validation-layers
@@ -193,14 +195,29 @@
     kubectl
     vault
     terraform
-    noto-fonts
-    noto-fonts-emoji
     starship
     python3
     python3.pkgs.pip
     virt-manager
     xdg-user-dirs
   ];
+
+  #FONT CONFIGURATION
+
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    font-awesome
+];
+
 
   powerManagement.enable = true;
 

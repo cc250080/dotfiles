@@ -188,26 +188,32 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+#bar {
+#    position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+
+bar {
+	swaybar_command waybar
 }
 
+
 #Hide window title bar
+
 default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
-#gaps Config
+#gaps Config - Borders and Space between Windows
 
 smart_borders on
 smart_gaps on

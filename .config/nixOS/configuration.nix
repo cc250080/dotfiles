@@ -2,19 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "filemon"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -51,18 +52,36 @@
   services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false; #Using Pipewire
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = false; #Using Pipewire
 
   # Allow Unfree
 
   nixpkgs.config.allowUnfree = true;
 
+  # Add custom ca-certs
+
+    security.pki.certificates = [ "{pkgs.cacert}/etc/ssl/certs/Roche/*.crt" ];
+
+  # xdg-desktop-portal works by exposing a series of D-Bus interfaces
+  # known as portals under a well-known name
+  # (org.freedesktop.portal.Desktop) and object path
+  # (/org/freedesktop/portal/desktop).
+  # The portal interfaces include APIs for file access, opening URIs,
+  # printing and others.
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   # Enable Wayland and Sway
 
   programs.sway.enable = true;
-  xdg.portal.wlr.enable = true;
 
+  programs.dconf.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -76,6 +95,39 @@
   #     tree
   #   ];
   # };
+
+  # Create my user declaratively
+
+   users.users.cortescc = {
+    isNormalUser = true;
+    home = "/home/cortescc";
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "vboxusers" ];
+};
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.cortescc = import ./home.nix;
+  };
+
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+    XDG_CURRENT_DESKTOP = "sway";
+    XCURSOR_SIZE = "16";
+    MOZ_ENABLE_WAYLAND= "1";
+    RTC_USE_PIPEWIRE= "true";
+    XDG_SESSION_TYPE= "wayland";
+
+    # Not officially in the specification
+    XDG_BIN_HOME    = "$HOME/.local/bin";
+    PATH = [ 
+      "${XDG_BIN_HOME}"
+    ];
+  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -99,22 +151,72 @@
     dracula-theme #GTK Theme
     gnome3.adwaita-icon-theme
     xdg-utils #for opening default programs when clicking links
+    wofi #wayland app launcher
+    gnome.cheese
     alacritty
     vulkan-validation-layers
     tmux
     foot
     pavucontrol
     pasystray
+    patray
     synology-drive-client
     imv
     lxappearance
+    unzip
+    google-chrome
+    google-chrome-beta
+    slack
+    gnome3.adwaita-icon-theme
+    wayland
+    cacert
+    xdg-desktop-portal-wlr
+    vlc
+    obs-studio
+    obs-studio-plugins.obs-pipewire-audio-capture
+    wireplumber
+    awscli2 # official `aws` CLI program
+    ffmpeg
+    gimp
+    killall
+    lm_sensors
+    mplayer
+    openssl
+    pciutils # lspci
+    v4l-utils
+    zoom-us
+    simplescreenrecorder
+    gst_all_1.gstreamer.dev
+    youtube-dl
+    man-pages
+    libcamera
+    kubectl
+    vault
+    terraform
+    noto-fonts
+    noto-fonts-emoji
+    starship
+    python3
+    python3.pkgs.pip
+    virt-manager
+    xdg-user-dirs
   ];
 
+  powerManagement.enable = true;
+
+  # When suspending, kill all sshfs instances, as otherwise it can make
+  # either suspend or resume hang (hang on resume requires force reboot).
+  powerManagement.powerDownCommands = ''
+    ${pkgs.procps}/bin/pkill -9 sshfs
+  '';
+
   # Enable Pipewire
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    alsa.support32Bit= true;
   };
 
   # Enable OpenGL
@@ -178,6 +280,12 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+
+  # Enable virtualization
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

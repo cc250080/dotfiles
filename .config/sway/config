@@ -232,6 +232,10 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 bindsym $mod+Print exec wl-copy < <(grim -g "$(slurp)" -)
 
+# Keybinding to lock the screen
+
+bindsym $mod+Alt+l exec swaylock -f -c 000000 
+
 # Include hosts files for different computers
 #include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`

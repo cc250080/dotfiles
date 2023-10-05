@@ -117,10 +117,21 @@
     XDG_DATA_HOME   = "$HOME/.local/share";
     XDG_STATE_HOME  = "$HOME/.local/state";
     XDG_CURRENT_DESKTOP = "sway";
+    XDG_SESSION_DESKTOP= "sway";
     XCURSOR_SIZE = "16";
     MOZ_ENABLE_WAYLAND= "1";
     RTC_USE_PIPEWIRE= "true";
     XDG_SESSION_TYPE= "wayland";
+    WLR_RENDERER= "vulkan";
+    WLR_NO_HARDWARE_CURSORS= "1";
+    XWAYLAND_NO_GLAMOR= "1";
+    SDL_VIDEODRIVER= "wayland";
+#    GDK_BACKEND= "wayland";
+#    QT_QPA_PLATFORM= "wayland";
+#    QT_WAYLAND_DISABLE_WINDOWDECORATION= "1";
+#    QT_QPA_PLATFORMTHEME= "qt5ct";
+    GBM_BACKEND= "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
 
     # Not officially in the specification
     XDG_BIN_HOME    = "$HOME/.local/bin";
@@ -193,6 +204,7 @@
     man-pages
     libcamera
     kubectl
+    kubecolor
     vault
     terraform
     starship
@@ -200,6 +212,13 @@
     python3.pkgs.pip
     virt-manager
     xdg-user-dirs
+    newsboat
+    minikube
+    kubernetes
+    kubernetes-helm
+    kubecm
+    kubeval
+    vagrant
   ];
 
   #FONT CONFIGURATION

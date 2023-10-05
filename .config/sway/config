@@ -19,6 +19,10 @@ set $term foot
 #set $menu dmenu_path | dmenu | xargs swaymsg exec -- #much faster
 set $menu wofi --show drun --gtk-dark --allow-images | xargs swaymsg exec
 
+### COLORS: CATPUCHIN MOCHA: https://github.com/catppuccin/i3/tree/main
+
+include catppuccin-mocha
+
 ### Idle configuration
 #
 # Example configuration:

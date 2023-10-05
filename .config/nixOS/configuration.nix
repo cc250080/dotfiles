@@ -219,6 +219,7 @@
     kubecm
     kubeval
     vagrant
+    neofetch
   ];
 
   #FONT CONFIGURATION

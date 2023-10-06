@@ -221,6 +221,10 @@
     kubeval
     vagrant
     neofetch
+    htop
+    tree
+    moc
+    nfs-utils
   ];
 
   #FONT CONFIGURATION

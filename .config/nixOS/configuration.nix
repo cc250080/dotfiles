@@ -132,6 +132,7 @@
 #    QT_QPA_PLATFORMTHEME= "qt5ct";
     GBM_BACKEND= "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME= "nvidia";
+    NIXOS_OZONE_WL = "1";
 
     # Not officially in the specification
     XDG_BIN_HOME    = "$HOME/.local/bin";

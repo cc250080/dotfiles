@@ -1,0 +1,15 @@
+auto-reload yes
+reload-threads 5
+
+#Miniflux Configuration
+urls-source "miniflux"
+miniflux-url "https://rss.carles.cc"
+
+miniflux-login "cc250080"
+miniflux-password "Daibei$s2eez"
+
+#Catpuccin Color theme https://github.com/catppuccin/newsboat
+include ~/.config/newsboat/dark
+
+#Browser
+browser "xdg-open"

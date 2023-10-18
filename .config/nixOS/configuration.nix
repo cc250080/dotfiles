@@ -14,11 +14,13 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+#  boot.kernelPackages = pkgs.linuxPackages_6_5;
 
   networking.hostName = "filemon"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -102,7 +104,7 @@
    users.users.cortescc = {
     isNormalUser = true;
     home = "/home/cortescc";
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "vboxusers" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "vboxusers" "docker" ];
 };
 
   home-manager = {
@@ -145,6 +147,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #linuxKernel.packages.linux_5_15.nvidia_x11_beta
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     kitty
@@ -209,8 +212,6 @@
     vault
     terraform
     starship
-    python3
-    python3.pkgs.pip
     virt-manager
     xdg-user-dirs
     newsboat
@@ -225,6 +226,9 @@
     tree
     moc
     nfs-utils
+    qutebrowser
+    gnumake
+    taskwarrior
   ];
 
   #FONT CONFIGURATION
@@ -301,7 +305,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -328,6 +332,7 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.docker.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

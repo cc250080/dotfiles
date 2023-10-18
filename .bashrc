@@ -125,8 +125,8 @@ alias awsDevCli='navify-aws-sso-login --username cortescc --login-role-arn arn:a
 alias awsDevWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::999061576626:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
 alias awsSandCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::539394064815:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheSandbox && export AWS_PROFILE=RocheSandbox'
 alias awsSandWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::539394064815:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
-alias awsQaCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::134732107763:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheQA && export AWS_PROFILE=RocheQA'
-alias awsQaWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::134732107763:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
+alias awsQaCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::268202787656:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheQA && export AWS_PROFILE=RocheQA'
+alias awsQaWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::268202787656:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
 alias awsProdCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::746925329889:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheProd && export AWS_PROFILE=RocheProd'
 alias awsStageCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::162957762240:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheStage && export AWS_PROFILE=RocheStage'
 alias awsNetwork='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::737414759265:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheNetwork && export AWS_PROFILE=RocheNetwork'
@@ -137,7 +137,7 @@ alias vim=nvim
 
 #KUBERNETES AUTOCOMPLETION
 
-alias k=kubectl
+alias k=kubecolor
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 export KUBE_EDITOR=nvim

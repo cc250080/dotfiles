@@ -14,14 +14,17 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-#  boot.kernelPackages = pkgs.linuxPackages_6_5;
+#  boot.kernelPackages = pkgs.linuxPackages_latest;
+#  boot.initrd.kernelModules = [ "nvidia" ];
+#  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  hardware.ledger.enable = true;
 
   networking.hostName = "filemon"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   systemd.services.NetworkManager-wait-online.enable = false;
-
+  systemd.services.network-addresses-vboxnet0.enable = false;
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 
@@ -148,7 +151,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #linuxKernel.packages.linux_5_15.nvidia_x11_beta
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     kitty
     firefox
@@ -229,6 +231,15 @@
     qutebrowser
     gnumake
     taskwarrior
+    vscodium.fhs
+    keepassxc
+    appimage-run
+    pwgen
+    tor-browser-bundle-bin
+    piper #software for logitech mouse
+    meld #graphical tool to compare-diff
+    etcd
+    gnutar
   ];
 
   #FONT CONFIGURATION
@@ -305,7 +316,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -320,6 +331,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Enable libratbag service for logitech mouse (used together with piper)
+  services.ratbagd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

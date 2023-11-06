@@ -1,7 +1,7 @@
 # multihead
-output DP-4 pos 0 0 bg ~/.config/wallpapers/flatppuccin_4k_macchiato.png stretch
-output DP-3 mode 2560x1440@165.080Hz pos 1920 0 bg ~/.config/wallpapers/cat-sound.png stretch
-output DP-2 pos 4480 0 bg ~/.config/wallpapers/unicat.png stretch
+output DP-3 pos 0 0 bg ~/.config/wallpapers/flatppuccin_4k_macchiato.png stretch
+output DP-2 mode 2560x1440@165.080Hz pos 1920 0 bg ~/.config/wallpapers/cat-sound.png stretch
+output DP-1 pos 4480 0 bg ~/.config/wallpapers/unicat.png stretch
 
 # bind initial workspaces to outputs
 workspace 1 output DP-2

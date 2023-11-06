@@ -33,4 +33,15 @@
 #      "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
 #      "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
 #    ];
+
+programs.neovim = {
+  enable = true;
+  defaultEditor = true;
+  viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
+  extraConfig = builtins.readFile /home/cortescc/.config/neovim/init.vim;
+};
+
+
 }

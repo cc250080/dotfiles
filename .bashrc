@@ -148,8 +148,4 @@ eval "$(starship init bash)"
 # SSH Agent
 eval "$(ssh-agent)"
 
-# Start Sway on Boot
-# If running from tty1 start sway
-[ "$(tty)" = "/dev/tty1" ] && exec sway --unsupported-gpu
-
 neofetch

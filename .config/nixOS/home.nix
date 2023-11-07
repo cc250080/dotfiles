@@ -43,5 +43,4 @@ programs.neovim = {
   extraConfig = builtins.readFile /home/cortescc/.config/neovim/init.vim;
 };
 
-
 }

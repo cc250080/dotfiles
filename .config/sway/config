@@ -223,14 +223,11 @@ smart_borders on
 smart_gaps on
 gaps inner 5
 
-# Mouse cursor theme
-
-seat seat0 xcursor_theme Bibata-Modern-Amber 16
 
 # Import some variables to SystemD to ensure wayland/xdg/dbus works
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec hash dbus-update-activation-environment 2>/dev/null && \
+#     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Keybinding to screenshot area selection
 
@@ -241,5 +238,4 @@ bindsym $mod+Print exec wl-copy < <(grim -g "$(slurp)" -)
 bindsym $mod+Alt+l exec swaylock -f -c 000000 
 
 # Include hosts files for different computers
-#include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`

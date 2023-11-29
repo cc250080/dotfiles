@@ -146,6 +146,6 @@ export KUBE_EDITOR=nvim
 eval "$(starship init bash)"
 
 # SSH Agent
-eval "$(ssh-agent)"
+#eval "$(ssh-agent)"
 
 neofetch

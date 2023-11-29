@@ -127,16 +127,16 @@
     MOZ_ENABLE_WAYLAND= "1";
     RTC_USE_PIPEWIRE= "true";
     XDG_SESSION_TYPE= "wayland";
-    WLR_RENDERER= "vulkan";
-    WLR_NO_HARDWARE_CURSORS= "1";
-    XWAYLAND_NO_GLAMOR= "1";
+#    WLR_RENDERER= "vulkan";
+#    WLR_NO_HARDWARE_CURSORS= "1";
+#    XWAYLAND_NO_GLAMOR= "1";
     SDL_VIDEODRIVER= "wayland";
 #    GDK_BACKEND= "wayland";
 #    QT_QPA_PLATFORM= "wayland";
 #    QT_WAYLAND_DISABLE_WINDOWDECORATION= "1";
 #    QT_QPA_PLATFORMTHEME= "qt5ct";
-    GBM_BACKEND= "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
+#    GBM_BACKEND= "nvidia-drm";
+#    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
     NIXOS_OZONE_WL = "1";
 
     # Not officially in the specification
@@ -150,7 +150,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #linuxKernel.packages.linux_5_15.nvidia_x11_beta
     wget
     kitty
     firefox
@@ -171,6 +170,7 @@
     xdg-utils #for opening default programs when clicking links
     wofi #wayland app launcher
     waybar #replacement for swaybar
+    unrar
     gnome.cheese
     alacritty
     vulkan-validation-layers
@@ -240,6 +240,18 @@
     meld #graphical tool to compare-diff
     etcd
     gnutar
+    gcc
+    nodejs
+    yarn
+    telegram-desktop
+    temurin-bin-17
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.es_ES
+    fluxctl
+    fluxcd
+    p7zip
   ];
 
   #FONT CONFIGURATION
@@ -289,18 +301,18 @@
   ];
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+ # services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
+#  hardware.nvidia = {
 
     # Modesetting is required.
-    modesetting.enable = true;
+#    modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    powerManagement.enable = false;
+#    powerManagement.enable = false;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+#    powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -309,15 +321,15 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     # Do not disable this unless your GPU is unsupported or if you have a good reason to.
-    open = true;
+#    open = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+#    nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
+#    package = config.boot.kernelPackages.nvidiaPackages.beta;
+#  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

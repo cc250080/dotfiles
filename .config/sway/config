@@ -231,7 +231,7 @@ gaps inner 5
 
 # Keybinding to screenshot area selection
 
-bindsym $mod+Print exec wl-copy < <(grim -g "$(slurp)" -)
+bindsym $mod+Alt+s exec wl-copy < <(grim -g "$(slurp)" -)
 
 # Keybinding to lock the screen
 

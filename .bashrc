@@ -135,6 +135,8 @@ alias pulse='/opt/pulsesecure/bin/pulselauncher -U rbapulse.range.roche.net/rlca
 
 alias vim=nvim
 
+alias mocp='mocp -T nightly_enhanced'
+
 #KUBERNETES AUTOCOMPLETION
 
 alias k=kubecolor

@@ -225,9 +225,9 @@ gaps inner 5
 
 
 # Import some variables to SystemD to ensure wayland/xdg/dbus works
-#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-#exec hash dbus-update-activation-environment 2>/dev/null && \
-#     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Keybinding to screenshot area selection
 

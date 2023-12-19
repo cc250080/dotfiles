@@ -1,1 +1,1 @@
-/nix/store/2dhd7gk07b1pdw2xd3wizwvhgszc2wyb-home-manager-files/.config/nvim/init.lua
+require("nexxus6")

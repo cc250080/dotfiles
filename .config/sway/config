@@ -237,5 +237,9 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 bindsym $mod+Alt+l exec swaylock -f -c 000000 
 
+# Keybing to show clipboard history
+
+bindsym $mod+Shift+p exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
+
 # Include hosts files for different computers
 include ~/.config/sway/`hostname`

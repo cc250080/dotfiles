@@ -148,7 +148,7 @@ export KUBE_EDITOR=nvim
 eval "$(starship init bash)"
 
 # ADD .local/bin to $PATH
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.krew/bin
 
 # SSH Agent
 #eval "$(ssh-agent)"

@@ -1,10 +1,10 @@
 # multihead
-output DP-1 mode 2560x1440@165.080Hz pos 1920 0 bg ~/.config/wallpapers/cat-sound.png stretch
+output HDMI-A-1 mode 2560x1440@165.080Hz pos 1920 0 bg ~/.config/wallpapers/cat-sound.png stretch
 output DP-2 pos 0 0 bg ~/.config/wallpapers/unicat.png stretch
-output DP-3 pos 4480 0 bg ~/.config/wallpapers/flatppuccin_4k_macchiato.png stretch
+output DP-1 pos 4480 0 bg ~/.config/wallpapers/flatppuccin_4k_macchiato.png stretch
 
 # bind initial workspaces to outputs
-workspace 1 output DP-2
+workspace 1 output HDMI-A-1
 workspace 2 output DP-3
 workspace 3 output DP-1
 

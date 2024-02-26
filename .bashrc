@@ -150,6 +150,9 @@ eval "$(starship init bash)"
 # ADD .local/bin to $PATH
 export PATH=$PATH:$HOME/.local/bin:$HOME/.krew/bin
 
+# Flux Autocompletion
+command -v flux >/dev/null && . <(flux completion bash)
+
 # SSH Agent
 #eval "$(ssh-agent)"
 

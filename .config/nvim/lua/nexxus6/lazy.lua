@@ -14,27 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("nexxus6.plugins")
-
-
-
-
-
--- telescope.nvim this is a fuzzy finder
---{
---   'nvim-telescope/telescope.nvim', tag = '0.1.5',
---     dependencies = { 'nvim-lua/plenary.nvim' }
---  }
-
--- devicons to use with nerd fonts
-
---'nvim-tree/nvim-web-devicons',
-
--- Catpuccin Colorscheme
-
---{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
--- Treesitter for code parsing and colorization
-
---require("lazy").setup({{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}}),
-
-
+local builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

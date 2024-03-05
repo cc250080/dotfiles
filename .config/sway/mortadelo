@@ -1,0 +1,13 @@
+# multihead
+output eDP-1 pos 0 0 bg ~/.config/wallpapers/unicat.png stretch
+
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+# start apps at boot
+exec pasystray
+exec synology-drive
+exec nm-applet

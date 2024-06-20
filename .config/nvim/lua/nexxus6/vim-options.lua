@@ -5,4 +5,4 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
 -- Neotree by default
-vim.cmd("Neotree")
+vim.cmd("Neotree action=show")

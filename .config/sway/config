@@ -138,7 +138,7 @@ exec swayidle -w \
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+#    bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -244,6 +244,10 @@ bindsym $mod+Shift+p exec cliphist list | wofi --show dmenu | cliphist decode | 
 # Allow cliphist to listen to clipboard changes
 
 exec wl-paste --watch cliphist store
+
+# wofi-emoji binding https://github.com/Zeioth/wofi-emoji
+
+bindsym Mod4+e exec ~/.local/bin/wofi-emoji
 
 # Include hosts files for different computers
 include ~/.config/sway/`hostname`

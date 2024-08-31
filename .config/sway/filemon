@@ -17,7 +17,7 @@ exec swaync
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # focus on central monitor at launch
-exec swaymsg focus output DP-1
+exec swaymsg focus HDMI-A-1
 
 # start apps at boot
 exec pasystray

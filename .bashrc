@@ -119,7 +119,7 @@ fi
 
 #ALIASES
 
-alias awsCustomerDevCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::370516466271:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheCustomerFake && export AWS_PROFILE=RocheCustomerFake'
+alias awsCustomerDevCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::370516466271:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheCustomerFake && export AWS_PROFILE=RocheCustomerDev'
 alias awsCustomerDevWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::370516466271:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
 alias awsDevCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::999061576626:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheDev && export AWS_PROFILE=RocheDev'
 alias awsDevWeb='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::999061576626:role/Roche/Products/EPC/EPCDevOps --get-admin-console-url'
@@ -131,7 +131,7 @@ alias awsProdCli='navify-aws-sso-login --username cortescc --login-role-arn arn:
 alias awsStageCli='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::162957762240:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheStage && export AWS_PROFILE=RocheStage'
 alias awsNetwork='navify-aws-sso-login --username cortescc --login-role-arn arn:aws:iam::737414759265:role/Roche/Products/EPC/EPCDevOps --write-credentials RocheNetwork && export AWS_PROFILE=RocheNetwork'
 
-alias pulse='/opt/pulsesecure/bin/pulselauncher -U rbapulse.range.roche.net/rlcaas-cert -r EMEA -c ~/.pulsesecure/pulse/certificates/$USER.pem -u $USER'
+#alias pulse='/opt/pulsesecure/bin/pulselauncher -U rbapulse.range.roche.net/rlcaas-cert -r EMEA -c ~/.pulsesecure/pulse/certificates/$USER.pem -u $USER'
 
 alias vim=nvim
 
@@ -154,6 +154,6 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.krew/bin:$HOME/go/bin
 command -v flux >/dev/null && . <(flux completion bash)
 
 # SSH Agent
-#eval "$(ssh-agent)"
+eval "$(ssh-agent)"
 
 neofetch

@@ -5,18 +5,18 @@
   font-size: 17px;
   min-height: 0;
 }
-
+/*
 window#waybar {
     background: transparent;
     color: white;
 }
-/*
+*/
 #waybar {
   background: transparent;
   color: @text;
   margin: 5px 5px;
 }
-*/
+
 #workspaces {
   border-radius: 1rem;
   margin: 5px;
@@ -33,8 +33,6 @@ window#waybar {
 #workspaces button.focused {
   color: @sapphire;
   border-radius: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 #workspaces button:hover {
@@ -50,6 +48,7 @@ window#waybar {
 #cpu,
 #memory,
 #temperature,
+#idle_inhibitor,
 #pulseaudio,
 #custom-lock,
 #custom-power {
@@ -94,6 +93,10 @@ window#waybar {
 
 #temperature {
   color: @flamingo;
+}
+
+#idle_inhibitor {
+  color: @pink;
 }
 
 #pulseaudio {

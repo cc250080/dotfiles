@@ -30,13 +30,15 @@ window#waybar {
   padding: 0.4rem;
 }
 
-#workspaces button.active {
-  color: @sky;
+#workspaces button.focused {
+  color: @sapphire;
   border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
+  color: @sky;
   border-radius: 1rem;
 }
 

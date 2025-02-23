@@ -249,5 +249,8 @@ exec wl-paste --watch cliphist store
 
 bindsym Mod4+e exec ~/.local/bin/wofi-emoji
 
+# Sync clipboards
+exec wl-paste -pw wl-copy
+
 # Include hosts files for different computers
 include ~/.config/sway/`hostname`

@@ -251,7 +251,8 @@ bindsym Mod4+e exec ~/.local/bin/wofi-emoji
 
 # Sync clipboards
 exec wl-paste -pw wl-copy
-exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Include hosts files for different computers
 include ~/.config/sway/`hostname`

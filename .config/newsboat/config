@@ -3,7 +3,7 @@ reload-threads 5
 
 #Miniflux Configuration
 urls-source "miniflux"
-miniflux-url "https://rss.carles.cc"
+miniflux-url "https://miniflux.carles.cc"
 
 miniflux-login "cc250080"
 miniflux-password "Daibei$s2eez"
@@ -12,4 +12,18 @@ miniflux-password "Daibei$s2eez"
 include ~/.config/newsboat/dark
 
 #Browser
-browser "xdg-open"
+#browser "xdg-open"
+browser "firefox %u"
+
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit

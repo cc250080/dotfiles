@@ -20,15 +20,14 @@ precmd () {
         if [[ -n $(git status -s) ]]; then
             # Repo amb canvis sense cometre
             git_status=" 🔧"
-        elif git diff-index --quiet --cached HEAD -- >/dev/null 2>&1; then
-            # Canvis staged
+        elif ! git diff-index --quiet --cached HEAD -- >/dev/null 2>&1; then
+            # Canvis staged (! inverteix la lògica)
             git_status=" 📦"
         else
             # Repo net
             git_status=" ✨"
         fi
     fi
-
     PS1="%B%F{cyan}%n%f%F{green}@%m%f%F{blue}:%~%f%F{magenta}${vcs_info_msg_0_}${git_status}%f%b %# "
 }
 

@@ -23,6 +23,9 @@ precmd () {
         elif ! git diff-index --quiet --cached HEAD -- >/dev/null 2>&1; then
             # Canvis staged (! inverteix la lògica)
             git_status=" 📦"
+	elif [[ -n $(git log --oneline @{u}.. 2>/dev/null) ]]; then
+            # Commits sense push
+            git_status=" 🚀"
         else
             # Repo net
             git_status=" ✨"

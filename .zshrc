@@ -31,7 +31,7 @@ precmd () {
             git_status=" ✨"
         fi
     fi
-    PS1="%B%F{cyan}%n%f%F{green}@%m%f%F{blue}:%~%f%F{magenta}${vcs_info_msg_0_}${git_status}%f%b %# "
+    PS1="%B%F{cyan}%n%f%F{green}@%m%f%F{blue}:%~%f%F{magenta}${vcs_info_msg_0_}${git_status}%f%b %F{cyan}>%f%b "
 }
 
 # Definir els colors
@@ -44,7 +44,7 @@ local bold="%B"
 local nobold="%b"
 
 # Construir el prompt
-PS1="%B%F{cyan}%n%f%F{green}@%m%f%F{blue}:%~%f${vcs_info_msg_0_}%b %# "
+PS1="%B%F{cyan}%n%f%F{green}@%m%f%F{blue}:%~%f${vcs_info_msg_0_}%b %F{cyan}>%f%b "
 # =============================================================================
 
 
@@ -92,6 +92,29 @@ alias ...='cd ../..'
 alias vi=nvim
 alias vim=nvim
 alias k=kubecolor
+
+# ROCHE Alias
+function awsSsoCli {
+  ENVS_FILE=${HOME}/.aws/aws-roche-cli.envs
+
+  aws-roche-cli sso "$@" && \
+
+  if [ -f "${ENVS_FILE}" ]; then
+    eval $(cat "${ENVS_FILE}")
+    rm "${ENVS_FILE}"
+  fi
+}
+
+function awsVaultCli {
+  ENVS_FILE=${HOME}/.aws/aws-roche-cli.envs
+
+  aws-roche-cli vault "$@" && \
+
+  if [ -f "${ENVS_FILE}" ]; then
+    eval $(cat "${ENVS_FILE}")
+    rm "${ENVS_FILE}"
+  fi
+}
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"

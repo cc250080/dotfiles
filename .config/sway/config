@@ -249,8 +249,18 @@ exec wl-paste --watch cliphist store
 
 bindsym Mod4+e exec ~/.local/bin/wofi-emoji
 
-# Sync clipboards
-exec wl-paste -pw wl-copy
+# Watch for text copies and save to cliphist
+exec wl-paste --type text --watch cliphist store
+
+# Watch for image copies and save to cliphist
+exec wl-paste --type image --watch cliphist store
+
+# Bind Mod+V to open the cliphist history menu
+bindsym $mod+z exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
+
+# Sync the primary selection (mouse-select) into cliphist history.
+# Sway handles middle-click paste natively, so no primary->primary loop here.
+exec wl-paste --primary --type text --watch cliphist store
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
